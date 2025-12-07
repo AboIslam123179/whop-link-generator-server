@@ -17,7 +17,7 @@ app.use(cors({
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URL)
   .then(()=>console.log('MongoDB connected'))
   .catch(err=>console.error(err));
 
@@ -64,6 +64,7 @@ app.delete('/links/:price', async (req,res)=>{
 });
 
 app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`));
+
 
 
 
