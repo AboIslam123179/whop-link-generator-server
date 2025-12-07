@@ -9,11 +9,8 @@ const app = express();
 app.use(bodyParser.json());
 
 // Enable CORS for all origins (or restrict to your frontend)
-app.use(cors({
-    origin: '*', // For production, replace '*' with your frontend URL
-    methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type']
-}));
+app.use(cors());
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)
@@ -65,6 +62,7 @@ app.delete('/links/:price', async (req, res) => {
 
 // **Important for Vercel Serverless**
 module.exports.handler = serverless(app);
+
 
 
 
